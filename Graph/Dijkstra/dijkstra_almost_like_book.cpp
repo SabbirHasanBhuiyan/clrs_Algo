@@ -1,5 +1,8 @@
 //Bismillah
-
+/*
+https://cses.fi/problemset/task/1671/
+you can read this statement
+*/
 #include<bits/stdc++.h>
 using namespace std;
 
