@@ -55,10 +55,6 @@ void dijkstra(int s,int n)
 }
 int main()
 {
-/*
-https://cses.fi/problemset/result/5384345/
-you can submit soln to this problem
-*/
     ll n,m,u,v,t,w;
 
     cin>>n>>m;
