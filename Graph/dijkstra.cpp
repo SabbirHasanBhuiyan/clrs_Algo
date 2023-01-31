@@ -145,8 +145,8 @@ void dijkstra(int s,int n)
     q.push({0,s});
     while(!q.empty()){
         auto temp=q.top();
-        ll u=temp.S;
-        ll curD=temp.F;
+        ll u=temp.second;
+        ll curD=temp.first;
         q.pop();
         if(curD!=node[u].d) continue;
 
