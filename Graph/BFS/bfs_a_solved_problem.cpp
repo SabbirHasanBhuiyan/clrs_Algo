@@ -1,6 +1,6 @@
 //Bismillah
 /*
-https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/monk-and-the-islands/?purpose=login&source=problem-page&update=google
+https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/monk-and-the-islands/
 */
 #include<bits/stdc++.h>
 using namespace std;
@@ -12,7 +12,7 @@ struct info{
     int par;
 }node[mx];
 vector<int> adj[mx];
-void bfs(int s,int n)
+void bfs(vector<int> adj[],int s,int n)
 {
     for(int i=1;i<=n;i++){
         node[i].color=1;
@@ -54,11 +54,10 @@ int main()
             adj[v].push_back(u);
         }
 
-        bfs(1,n);
+        bfs(adj,1,n);
         cout<<node[n].d<<endl;
 
     }
 
     return 0;
 }
-
