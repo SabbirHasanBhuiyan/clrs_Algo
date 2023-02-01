@@ -11,11 +11,11 @@ using namespace std;
 typedef long long ll;
 
 
-const ll infLL = 9e18;
+const ll infLL = 1e18;
 const int mx = 1e3+1;
 vector<vector<int> > edges;
 struct info{
-    ll d; //ll has been typedef-ed as ll
+    ll d; //long long has been typedef as ll
     int par;
 }node[mx];
 
