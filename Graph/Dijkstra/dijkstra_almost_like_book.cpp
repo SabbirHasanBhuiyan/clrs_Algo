@@ -25,6 +25,15 @@ void INITIALIZE_SINGLE_SOURCE(int s,int n)
     node[s].par=-1;
 }
 
+bool RELAX(int u,int v,ll w)
+{
+    if(node[v].d>(node[u].d+w)){
+        node[v].d=node[u].d+w;
+        node[v].par=u;
+        return 1;
+    }else return 0;
+}
+
 void dijkstra(int s,int n)
 {
     INITIALIZE_SINGLE_SOURCE(s,n);
@@ -44,9 +53,7 @@ void dijkstra(int s,int n)
         for(auto &x: adj[u]){
             ll v=x.first;
             ll w=x.second;
-            if((curD+w)<node[v].d){
-                node[v].d=curD+w;
-                node[v].par=u;
+            if(RELAX(u,v,w)){
                 q.push({node[v].d,v});
             }
         }
@@ -75,4 +82,3 @@ int main()
 
     return 0;
 }
-
