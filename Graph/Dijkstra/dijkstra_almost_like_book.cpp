@@ -38,8 +38,6 @@ void dijkstra(int s,int n)
 {
     INITIALIZE_SINGLE_SOURCE(s,n);
 
-    priority_queue<int,vector<int> , greater<int>>pq;
-
     priority_queue<pair<ll,ll> , vector<pair<ll,ll>> ,greater<pair<ll,ll>> >q;
     q.push({0,s});
 
