@@ -1,0 +1,68 @@
+//bismillah
+
+/*
+https://cses.fi/problemset/task/1672/
+*/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define infLL 1e18
+
+const int mx = 512;
+ll dist[mx][mx];
+
+void FLOYD_WARSHALL(int n)
+{
+    for ( int k = 1; k <= n; k++ ) {
+        for ( int i = 1; i <= n; i++ ) {
+            for ( int j = 1; j <= n; j++ ) {
+                if ( dist[i][k] + dist[k][j] < dist[i][j] ) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+}
+int main()
+{
+
+    int n, m, q;
+    cin >> n >> m >> q;
+
+    ///initialization to ini
+    for ( int i = 1; i <= n; i++ ) {
+        for ( int j = 1; j <= n; j++ ) {
+            if ( i != j ) dist[i][j] = infLL;
+        }
+    }
+
+    ///graph input
+    for ( int i = 1; i <= m; i++ ) {
+        int u, v, w;
+        cin >> u >> v >> w;
+
+        dist[u][v] = min ( dist[u][v], (ll) w );
+        dist[v][u] = min ( dist[v][u], (ll) w );
+    }
+
+
+    ///calculating all pair shortest paths
+    FLOYD_WARSHALL(n);
+
+    ///outputs : this part is related to the link to the problem : link given in top
+    while ( q-- ) {
+        int u, v;
+        cin >> u >> v;
+        if ( dist[u][v] == infLL ) dist[u][v] = -1;
+        cout << dist[u][v] << endl;
+    }
+
+
+
+	return 0;
+}
+
+
+
+
